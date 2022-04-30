@@ -18,6 +18,10 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import HMSMap, { HMSMarker, MapTypes } from '@hmscore/react-native-hms-map';
+import { HMSApplication } from '@hmscore/react-native-hms-ml'
+
+import TextRecognition from './components/TextRecognition';
+import Translate from './components/Translate';
 
 const App = () => {
   // AGCApp.getInstance().setClientId('clientId');
@@ -29,28 +33,14 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  HMSApplication.setApiKey("DAEDAKFHYISPoNzV0or3CQDLrvH+d0KakjXFJv6fWEA+2OA1GFes7Ka2mXM2cNdg+VS/Lgo4p5Fugri4HzLxVgXv2NJyTOBlGShlKw==")
+    .then((res) => {console.log(res);})
+    .catch((err) => {console.log(err);})
+
   return (
     <>
-      <HMSMap 
-        mapType={MapTypes.NORMAL}
-        style={{ height: 400 }}
-        camera={{ target: { latitude: 41, longitude: 29 }, zoom: 11 }}
-      >
-        <HMSMarker // Simple example
-          coordinate={{ latitude: 41, longitude: 29 }}
-          title="Hello Huawei Map"
-          snippet="This is a snippet!"
-        />
-      </HMSMap>
-      
-      <TouchableOpacity
-        onPress={ () => start() }
-      >
-        <Text>
-          Cagun l'ostia
-        </Text>
-      </TouchableOpacity>
-
+      <Translate />
     </>
   );
 };
