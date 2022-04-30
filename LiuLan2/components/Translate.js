@@ -36,6 +36,12 @@ export default function Translate () {
     }).catch((err) => {console.log(err);})
   }
 
+  var translate = (text) => {
+    textin = text;
+    trans();
+    return translation;
+  }
+
   return (
     <>
       <TextInput 
@@ -49,5 +55,23 @@ export default function Translate () {
       </TouchableOpacity>
     </>
   );
+
+}
+
+export function TranslateText (text, sourceLC) {
+  console.log("::"+text)
+  let translation = '';
+
+  HMSTranslate.syncTranslate(
+      true,
+      true,
+      text,
+      {
+          sourceLanguageCode: sourceLC,
+          targetLanguageCode: HMSTranslate.ENGLISH
+      }
+  ).then((res) => {
+    return res.result;
+  }).catch((err) => {console.log(err);})
 
 }

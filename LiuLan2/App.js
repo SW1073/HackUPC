@@ -17,11 +17,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import HMSMap, { HMSMarker, MapTypes } from '@hmscore/react-native-hms-map';
+// import HMSMap, { HMSMarker, MapTypes } from '@hmscore/react-native-hms-map';
 import { HMSApplication } from '@hmscore/react-native-hms-ml'
+
+import { styles } from './components/Styles';
 
 import TextRecognition from './components/TextRecognition';
 import Translate from './components/Translate';
+import ASR from './components/ASR';
 
 const App = () => {
   // AGCApp.getInstance().setClientId('clientId');
@@ -39,9 +42,10 @@ const App = () => {
     .catch((err) => {console.log(err);})
 
   return (
-    <>
-      <Translate />
-    </>
+    <View>
+      {/* <Translate /> */}
+      <ASR />
+    </View>
   );
 };
 
