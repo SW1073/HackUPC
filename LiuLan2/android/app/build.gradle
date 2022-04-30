@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-apply plugin: 'com.huawei.agconnect'
+apply plugin: "com.huawei.agconnect"
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -136,7 +136,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.liulan2"
+        applicationId "com.hsd.upc.hack"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -260,6 +260,23 @@ android {
 
         }
     }
+
+    signingConfigs {
+      config {
+        storeFile file('./keystore.jks')
+        storePassword '123456'
+        keyAlias 'mlkitshowcase'
+        keyPassword '123456'
+      }
+    }
+    buildTypes {
+      debug {
+        signingConfig signingConfigs.config
+      }
+      release {
+        signingConfig signingConfigs.config
+      }
+    }
 }
 
 dependencies {
@@ -272,6 +289,7 @@ dependencies {
 
     implementation 'com.huawei.hms:maps:6.3.1.300'
     implementation project(':react-native-hms-map')
+    implementation project(':react-native-hms-ml')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

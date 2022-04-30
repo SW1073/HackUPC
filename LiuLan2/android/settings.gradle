@@ -2,6 +2,8 @@ rootProject.name = 'LiuLan2'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':react-native-hms-map'
 project(':react-native-hms-map').projectDir = new File(rootProject.projectDir, '../node_modules/@hmscore/react-native-hms-map/android')
+include ':react-native-hms-ml'
+project(':react-native-hms-ml').projectDir = new File(rootProject.projectDir, '../node_modules/@hmscore/react-native-hms-ml/android')
 include ':app'
 includeBuild('../node_modules/react-native-gradle-plugin')
 

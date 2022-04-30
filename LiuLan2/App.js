@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {
@@ -24,6 +25,7 @@ const App = () => {
   // AGCApp.getInstance().setApiKey('apiKey');
   const isDarkMode = useColorScheme() === 'dark';
 
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -41,6 +43,14 @@ const App = () => {
         />
       </HMSMap>
       
+      <TouchableOpacity
+        onPress={ () => start() }
+      >
+        <Text>
+          Cagun l'ostia
+        </Text>
+      </TouchableOpacity>
+
     </>
   );
 };

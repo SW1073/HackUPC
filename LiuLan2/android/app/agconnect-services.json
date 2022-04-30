@@ -17,7 +17,7 @@
 		"project_id":"99536292102231722",
 		"app_id":"106093477",
 		"api_key":"DAEDAKFHYISPoNzV0or3CQDLrvH+d0KakjXFJv6fWEA+2OA1GFes7Ka2mXM2cNdg+VS/Lgo4p5Fugri4HzLxVgXv2NJyTOBlGShlKw==",
-		"package_name":"com.liulan2"
+		"package_name":"com.hsd.upc.hack"
 	},
 	"oauth_client":{
 		"client_id":"106093477",
@@ -25,17 +25,17 @@
 	},
 	"app_info":{
 		"app_id":"106093477",
-		"package_name":"com.liulan2"
+		"package_name":"com.hsd.upc.hack"
 	},
 	"configuration_version":"3.0",
 	"appInfos":[
 		{
-			"package_name":"com.liulan2",
+			"package_name":"com.hsd.upc.hack",
 			"client":{
 				"app_id":"106093477"
 			},
 			"app_info":{
-				"package_name":"com.liulan2",
+				"package_name":"com.hsd.upc.hack",
 				"app_id":"106093477"
 			},
 			"oauth_client":{
