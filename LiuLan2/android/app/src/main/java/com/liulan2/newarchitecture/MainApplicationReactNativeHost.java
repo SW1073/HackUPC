@@ -1,4 +1,4 @@
-package com.liulan2.newarchitecture;
+package com.liulan.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.liulan2.BuildConfig;
-import com.liulan2.newarchitecture.components.MainComponentsRegistry;
-import com.liulan2.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.liulan.BuildConfig;
+import com.liulan.newarchitecture.components.MainComponentsRegistry;
+import com.liulan.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

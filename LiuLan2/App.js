@@ -40,20 +40,22 @@ const App = () => {
 
   return (
     <View style={styles.fullcontent}>
-      <TouchableOpacity style={{backgroundColor: "#d7d7d7"}} onPress={async () => {
-        var req = "translate hello, good morning to spanish"
+      <Text style={styles.textLogo}>LIULAN</Text>
+      <View style={styles.separator}><Text>-</Text></View>
+      {/* <TouchableOpacity style={{backgroundColor: "#d7d7d7"}} onPress={async () => {
+        var req = "give me a map, please"
         var str = await request(req);
         setReq([req, str]);
       }}>
         <Text>
           Request
         </Text>
-      </TouchableOpacity>
-      <View>
+      </TouchableOpacity>  */}
+      <View style={styles.conversation}>
         {
           req != [] && 
           <>
-            <Text style={{textAlign:"right"}}>{req[0]}</Text>  
+            <Text style={styles.userText}>{req[0]}</Text>  
             {req[1]}
           </>
         }

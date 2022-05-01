@@ -1,4 +1,4 @@
-package com.liulan2.newarchitecture.components;
+package com.liulan.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

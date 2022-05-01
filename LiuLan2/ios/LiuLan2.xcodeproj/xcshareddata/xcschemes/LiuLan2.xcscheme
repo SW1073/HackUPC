@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "LiuLan2.app"
-               BlueprintName = "LiuLan2"
-               ReferencedContainer = "container:LiuLan2.xcodeproj">
+               BuildableName = "LiuLan.app"
+               BlueprintName = "LiuLan"
+               ReferencedContainer = "container:LiuLan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "LiuLan2Tests.xctest"
-               BlueprintName = "LiuLan2Tests"
-               ReferencedContainer = "container:LiuLan2.xcodeproj">
+               BuildableName = "LiuLanTests.xctest"
+               BlueprintName = "LiuLanTests"
+               ReferencedContainer = "container:LiuLan.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "LiuLan2.app"
-            BlueprintName = "LiuLan2"
-            ReferencedContainer = "container:LiuLan2.xcodeproj">
+            BuildableName = "LiuLan.app"
+            BlueprintName = "LiuLan"
+            ReferencedContainer = "container:LiuLan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "LiuLan2.app"
-            BlueprintName = "LiuLan2"
-            ReferencedContainer = "container:LiuLan2.xcodeproj">
+            BuildableName = "LiuLan.app"
+            BlueprintName = "LiuLan"
+            ReferencedContainer = "container:LiuLan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

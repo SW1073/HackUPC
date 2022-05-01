@@ -6,6 +6,7 @@ import HMSMap, { MapTypes, HMSMarker } from "@hmscore/react-native-hms-map";
 import { ScheduleAlarm } from './Notifications';
 import { TranslateText } from './Translate';
 import { loadPartialConfig } from '@babel/core';
+import { styles } from './Styles';
 
 const locations = [
   {
@@ -69,19 +70,19 @@ export async function request (text) {
       // var numtxt = stext[idx-1];
       seconds = stext[idx-1];
       ScheduleAlarm(seconds);
-      return <Text>Setted alarm in " + stext[idx-1] + " seconds!"</Text>;
+      return <Text style={styles.liulanText}>Setted alarm in " + stext[idx-1] + " seconds!"</Text>;
     } else if (stext.includes("minutes")) {
       var idx = stext.indexOf('minutes');
       // var numtxt = stext[idx-1];
       seconds = stext[idx-1] * 60;
       ScheduleAlarm(seconds);
-      return <Text>Setted alarm in " + stext[idx-1] + " minutes!"</Text>;
+      return <Text style={styles.liulanText}>Setted alarm in " + stext[idx-1] + " minutes!"</Text>;
     } else if (stext.includes("hours")) {
       var idx = stext.indexOf('hours');
       // var numtxt = stext[idx-1];
       seconds = stext[idx-1] * 360;
       ScheduleAlarm(seconds);
-      return <Text>"Setted alarm in " + stext[idx-1] + " hours!"</Text>;
+      return <Text style={styles.liulanText}>"Setted alarm in " + stext[idx-1] + " hours!"</Text>;
     } 
 
 
@@ -100,7 +101,7 @@ export async function request (text) {
 
     return (
       <>
-        <Text>Here you have your map d:</Text>      
+        <Text style={styles.liulanText}>Here you have your map :d</Text>      
         <HMSMap 
           mapType={MapTypes.NORMAL}
           style={{ height: 400 }}
@@ -141,7 +142,7 @@ export async function request (text) {
     var result = await TranslateText(ttx.join(" "), 'en', lang);
     console.log(result)
     return (
-      <Text>{result}</Text>
+      <Text style={styles.liulanText}>{result}</Text>
     )
   }
 }
