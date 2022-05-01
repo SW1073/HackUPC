@@ -5,6 +5,7 @@ import HMSMap, { MapTypes, HMSMarker } from "@hmscore/react-native-hms-map";
 
 import { ScheduleAlarm } from './Notifications';
 import { TranslateText } from './Translate';
+import { loadPartialConfig } from '@babel/core';
 
 const locations = [
   {
@@ -36,7 +37,7 @@ const locations = [
 async function retrieveData () {
   try {
     console.log("retrieving")
-    const value = await AsyncStorageStatic.getItem('LOCATIONS');
+    const value = await AsyncStorageStatic.getItem('hola');
     if (value) {
       // We have data!!
       console.log("A")
@@ -88,9 +89,14 @@ export function request (text) {
   } else if (text.includes("map")) {
     console.log("show map for: " + text);
 
-    // storeData('LOCATIONS', JSON.stringify(locations))
-
-    retrieveData();
+    const listItems = locations.map((loc, id) =>
+      <HMSMarker 
+        key={id}
+        coordinate={{ latitude: loc.latitude, longitude: loc.longitude }}
+        title={loc.title}
+        snippet={loc.snippet}
+      />
+    );
 
     return (
       <>
@@ -100,6 +106,7 @@ export function request (text) {
           style={{ height: 400 }}
           camera={{ target: { latitude: 41.389011, longitude: 2.113343 }, zoom: 11 }}
         >
+          {listItems}
         </HMSMap>
       </>
     )
@@ -114,11 +121,27 @@ export function request (text) {
     console.log(stext)
 
     var idx = stext.indexOf("to");
-    var lang = stext[idx+1];
+    var lang = 'en';
+    if (idx > 0) {
+      lang = stext[idx+1];
+    }
+    if (lang == "french") {
+      lang = 'fr';
+    } else if (lang == "spanish") {
+      lang = 'es';
+    } else if (lang == "catalan") {
+      lang = 'ca';
+    } else if (lang == "chinese") {
+      lang = 'zh-rHK';
+    }
 
     var ttx = stext.slice(0, idx);
     console.log(ttx)
 
-    return <Text>Not Working :_(</Text>
+    var result = TranslateText(ttx.join(" "), 'en', lang);
+    console.log(result)
+    return (
+      <Text>{result}</Text>
+    )
   }
 }

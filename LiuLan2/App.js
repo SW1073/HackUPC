@@ -41,9 +41,10 @@ const App = () => {
   return (
     <View>
       <TouchableOpacity style={{backgroundColor: "#d7d7d7"}} onPress={() => {
+        var req = "translate good morning to french"
         var arr = [];
-        arr.push("give me a map");
-        var str = request("give me a map");
+        arr.push(req);
+        var str = request(req);
         arr.push(str);
         setReq(arr);
       }}>
