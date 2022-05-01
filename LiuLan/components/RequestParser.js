@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, AsyncStorageStatic } from 'react-native';
 import { HMSTranslate } from '@hmscore/react-native-hms-ml';
 import HMSMap, { MapTypes, HMSMarker } from "@hmscore/react-native-hms-map";
+import { ttsEngine, TTS } from './TTS';
 
 import { ScheduleAlarm } from './Notifications';
 import { TranslateText } from './Translate';
@@ -41,7 +42,6 @@ async function retrieveData () {
     const value = await AsyncStorageStatic.getItem('hola');
     if (value) {
       // We have data!!
-      console.log("A")
       console.log(value);
     }
   } catch (error) {
@@ -70,18 +70,21 @@ export async function request (text) {
       // var numtxt = stext[idx-1];
       seconds = stext[idx-1];
       ScheduleAlarm(seconds);
-      return <Text style={styles.liulanText}>Setted alarm in " + stext[idx-1] + " seconds!"</Text>;
+      TTS("Setted alarm in " + stext[idx-1] + " seconds!");
+      return <Text style={styles.liulanText}>Setted alarm in {stext[idx-1]} seconds!</Text>;
     } else if (stext.includes("minutes")) {
       var idx = stext.indexOf('minutes');
       // var numtxt = stext[idx-1];
       seconds = stext[idx-1] * 60;
       ScheduleAlarm(seconds);
+      TTS("Setted alarm in " + stext[idx-1] + " minutes!");
       return <Text style={styles.liulanText}>Setted alarm in " + stext[idx-1] + " minutes!"</Text>;
     } else if (stext.includes("hours")) {
       var idx = stext.indexOf('hours');
       // var numtxt = stext[idx-1];
       seconds = stext[idx-1] * 360;
       ScheduleAlarm(seconds);
+      TTS("Setted alarm in " + stext[idx-1] + " hours!");
       return <Text style={styles.liulanText}>"Setted alarm in " + stext[idx-1] + " hours!"</Text>;
     } 
 
@@ -99,6 +102,7 @@ export async function request (text) {
       />
     );
 
+    TTS("Here you have your map!");
     return (
       <>
         <Text style={styles.liulanText}>Here you have your map :d</Text>      
@@ -141,6 +145,7 @@ export async function request (text) {
 
     var result = await TranslateText(ttx.join(" "), 'en', lang);
     console.log(result)
+    TTS(result);
     return (
       <Text style={styles.liulanText}>{result}</Text>
     )

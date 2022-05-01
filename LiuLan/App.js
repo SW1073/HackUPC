@@ -9,6 +9,7 @@ import {
   useColorScheme,
   TouchableOpacity,
   View,
+  Image,
   PermissionsAndroid
 } from 'react-native';
 import {
@@ -32,6 +33,11 @@ import { request } from './components/RequestParser';
 const App = () => {
   var [req, setReq] = useState([]);
 
+  var proc = async (req) => {
+    var str = await request(req.toLowerCase());
+    setReq([req, str]);
+  }
+
   HMSApplication.setApiKey("DAEDAKFHYISPoNzV0or3CQDLrvH+d0KakjXFJv6fWEA+2OA1GFes7Ka2mXM2cNdg+VS/Lgo4p5Fugri4HzLxVgXv2NJyTOBlGShlKw==")
     .then((res) => {console.log(res);})
     .catch((err) => {console.log(err);})
@@ -40,12 +46,11 @@ const App = () => {
 
   return (
     <View style={styles.fullcontent}>
-      <Text style={styles.textLogo}>LIULAN</Text>
+      <Image source={require('./static/LIULAN.png')} style={{ resizeMode: 'contain', maxWidth: 150, maxHeight: 70, marginLeft: 'auto', marginRight: 'auto' }}/>
+      {/* <Text style={styles.textLogo}>LIULAN</Text> */}
       <View style={styles.separator}><Text>-</Text></View>
       {/* <TouchableOpacity style={{backgroundColor: "#d7d7d7"}} onPress={async () => {
-        var req = "give me a map, please"
-        var str = await request(req);
-        setReq([req, str]);
+        TTS("hola")
       }}>
         <Text>
           Request
@@ -63,7 +68,7 @@ const App = () => {
 
         </View>
       </View>
-      <ASR />
+      <ASR func={proc} />
     </View>
   );
 };

@@ -12,9 +12,9 @@ export function ttsEngine () {
   ).then((res) => {console.log(res);}).catch((err) => {console.log(err);})  
 }
 
-export function TTS () {
+export function TTS (text) {
   HMSTextToSpeech.speak(
-    "hello, my dude Jordi Borras",
-    HMSTextToSpeech.EXTERNAL_PLAYBACK
+    text,
+    HMSTextToSpeech.QUEUE_FLUSH
   ).then((res) => {console.log(res);}).catch((err) => {console.log(err);})
 }
