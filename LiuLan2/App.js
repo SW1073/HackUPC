@@ -39,14 +39,11 @@ const App = () => {
   ttsEngine();
 
   return (
-    <View>
-      <TouchableOpacity style={{backgroundColor: "#d7d7d7"}} onPress={() => {
-        var req = "translate good morning to french"
-        var arr = [];
-        arr.push(req);
-        var str = request(req);
-        arr.push(str);
-        setReq(arr);
+    <View style={styles.fullcontent}>
+      <TouchableOpacity style={{backgroundColor: "#d7d7d7"}} onPress={async () => {
+        var req = "translate hello, good morning to spanish"
+        var str = await request(req);
+        setReq([req, str]);
       }}>
         <Text>
           Request

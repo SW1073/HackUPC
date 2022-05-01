@@ -58,11 +58,22 @@ export default function Translate () {
 
 }
 
-export function TranslateText (text, sourceLC, targetLC) {
+export async function detectLanguage (text) {
+    const res = await HMSLanguageDetection.probabilityDetect(
+        true,
+        true,
+        HMSLanguageDetection.PROBABILITY_DETECTION_LANGUAGE_TRUSTED_THRESHOLD,
+        text
+    )
+
+    return res.result[0].languageCode;
+  }
+
+export async function TranslateText (text, sourceLC, targetLC) {
   console.log("::"+text)
   let translation = '';
 
-  HMSTranslate.asyncTranslate(
+  const res = await HMSTranslate.asyncTranslate(
       true,
       true,
       text,
@@ -70,10 +81,7 @@ export function TranslateText (text, sourceLC, targetLC) {
           sourceLanguageCode: sourceLC,
           targetLanguageCode: targetLC
       }
-  ).then((res) => {
-    console.log(res.result + "::")
-    translation = res.result;
-  }).catch((err) => {console.log(err);})
+  )
 
-  return translation;
+  return res.result;
 }

@@ -56,7 +56,7 @@ async function storeData (id, obj) {
   }
 };
 
-export function request (text) {
+export async function request (text) {
   // ALARM
   if (text.includes("alarm")) {
     console.log("alarm for: " + text);
@@ -132,13 +132,13 @@ export function request (text) {
     } else if (lang == "catalan") {
       lang = 'ca';
     } else if (lang == "chinese") {
-      lang = 'zh-rHK';
+      lang = HMSTranslate.CHINESE;
     }
 
     var ttx = stext.slice(0, idx);
     console.log(ttx)
 
-    var result = TranslateText(ttx.join(" "), 'en', lang);
+    var result = await TranslateText(ttx.join(" "), 'en', lang);
     console.log(result)
     return (
       <Text>{result}</Text>
