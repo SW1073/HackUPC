@@ -58,7 +58,7 @@ export default function Translate () {
 
 }
 
-export function TranslateText (text, sourceLC) {
+export function TranslateText (text, sourceLC, targetLC) {
   console.log("::"+text)
   let translation = '';
 
@@ -68,9 +68,10 @@ export function TranslateText (text, sourceLC) {
       text,
       {
           sourceLanguageCode: sourceLC,
-          targetLanguageCode: HMSTranslate.ENGLISH
+          targetLanguageCode: targetLC
       }
   ).then((res) => {
+    console.log(res.result + "::")
     return res.result;
   }).catch((err) => {console.log(err);})
 

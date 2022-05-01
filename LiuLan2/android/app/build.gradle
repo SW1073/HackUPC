@@ -290,6 +290,7 @@ dependencies {
     implementation 'com.huawei.hms:maps:6.3.1.300'
     implementation project(':react-native-hms-map')
     implementation project(':react-native-hms-ml')
+    implementation project(':react-native-hms-push')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

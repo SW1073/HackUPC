@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   TouchableOpacity,
   View,
+  PermissionsAndroid
 } from 'react-native';
 import {
   Colors,
@@ -17,33 +19,50 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-// import HMSMap, { HMSMarker, MapTypes } from '@hmscore/react-native-hms-map';
+import HMSMap, { HMSMarker, MapTypes } from '@hmscore/react-native-hms-map';
 import { HMSApplication } from '@hmscore/react-native-hms-ml'
 
 import { styles } from './components/Styles';
 
 import TextRecognition from './components/TextRecognition';
-import Translate from './components/Translate';
+import { ttsEngine, TTS } from './components/TTS';
 import ASR from './components/ASR';
+import { request } from './components/RequestParser';
 
 const App = () => {
-  // AGCApp.getInstance().setClientId('clientId');
-  // AGCApp.getInstance().setClientSecret('clientSecret');
-  // AGCApp.getInstance().setApiKey('apiKey');
-  const isDarkMode = useColorScheme() === 'dark';
-
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  var [req, setReq] = useState([]);
 
   HMSApplication.setApiKey("DAEDAKFHYISPoNzV0or3CQDLrvH+d0KakjXFJv6fWEA+2OA1GFes7Ka2mXM2cNdg+VS/Lgo4p5Fugri4HzLxVgXv2NJyTOBlGShlKw==")
     .then((res) => {console.log(res);})
     .catch((err) => {console.log(err);})
 
+  ttsEngine();
+
   return (
     <View>
-      {/* <Translate /> */}
+      <TouchableOpacity style={{backgroundColor: "#d7d7d7"}} onPress={() => {
+        var arr = [];
+        arr.push("give me a map");
+        var str = request("give me a map");
+        arr.push(str);
+        setReq(arr);
+      }}>
+        <Text>
+          Request
+        </Text>
+      </TouchableOpacity>
+      <View>
+        {
+          req != [] && 
+          <>
+            <Text style={{textAlign:"right"}}>{req[0]}</Text>  
+            {req[1]}
+          </>
+        }
+        <View>
+
+        </View>
+      </View>
       <ASR />
     </View>
   );
